@@ -29,7 +29,7 @@ P= V^2 / R
 
 This is a child class of `ResistiveCircuit`. It calculates equivalent resistance by adding all the resistor values:
 
-R_{eq} = R_1 + R_2 + ... + R_n
+Req = R_1 + R_2 + ... + R_n
 
 It has two constructors to match the two constructors in the parent class. The first one allows the user to enter each resistor value, while the second one is used when all the resistors have equal values.
 
@@ -37,7 +37,7 @@ It has two constructors to match the two constructors in the parent class. The f
 
 This is also a child class of `ResistiveCircuit`. It calculates equivalent resistance using the reciprocal formula:
 
-R_{eq}} = 1/R_1 +  1/R_2 + ... +  1/R_n
+Req = 1/R_1 +  1/R_2 + ... +  1/R_n
 
 Like `Series`, it has two constructors to match the parent class.
 
