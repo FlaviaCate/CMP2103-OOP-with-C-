@@ -23,17 +23,13 @@ The compiler chooses which constructor to use depending on the parameters passed
 
 `calculatePower()` is in the parent class because the power calculation is the same for both series and parallel circuits:
 
-\[
-P = \frac{V^2}{R_{eq}}
-\]
+P= V^2 / R
 
 ### `Series`
 
 This is a child class of `ResistiveCircuit`. It calculates equivalent resistance by adding all the resistor values:
 
-\[
-R_{eq} = R_1 + R_2 + \cdots + R_n
-\]
+R_{eq} = R_1 + R_2 + ... + R_n
 
 It has two constructors to match the two constructors in the parent class. The first one allows the user to enter each resistor value, while the second one is used when all the resistors have equal values.
 
@@ -41,9 +37,7 @@ It has two constructors to match the two constructors in the parent class. The f
 
 This is also a child class of `ResistiveCircuit`. It calculates equivalent resistance using the reciprocal formula:
 
-\[
-\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}
-\]
+R_{eq}} = 1/R_1 +  1/R_2 + ... +  1/R_n
 
 Like `Series`, it has two constructors to match the parent class.
 
