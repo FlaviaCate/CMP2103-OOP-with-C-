@@ -7,12 +7,13 @@ using namespace std;
 class LinearRegression
 {
 private:
-    vector<vector<double>> points;
+    using Matrix = vector<vector<double>>;
+    Matrix points;
     double slope;
     double intercept;
 
 public:
-    double rmse(const vector<vector<double>> &points)
+    double rmse(const Matrix &points)
     {
         double sum = 0.0;
         int m = points.size();
@@ -24,7 +25,7 @@ public:
         return sqrt(sum / m);
     }
 
-    double mae(const vector<vector<double>> &points)
+    double mae(const Matrix &points)
     {
         double sum = 0.0;
         int m = points.size(); // Assuming we're comparing all points
@@ -36,7 +37,7 @@ public:
         return sum / m;
     }
 
-    void gradient(const vector<vector<double>> &points)
+    void gradient(const Matrix &points)
     {
         double sum_x = 0.0;
         double sum_y = 0.0;
@@ -56,15 +57,15 @@ public:
         slope = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - sum_x * sum_x);
     }
 
-    void y_intercept(const vector<double> &p, double slope)
+    void y_intercept(const vector<double> &p)
     {
         intercept = p[1] - slope * p[0];
     }
 
-    void fit(const vector<vector<double>> &points)
+    void fit(const vector<double> &X, vector<double> &y)
     {
-        gradient(points);
-        y_intercept({points[0][0], points[0][1]}, slope);
+        gradient(vector<vector<double>>{X, y});
+        y_intercept({X[0], y[0]});
     }
 
     double predict(const vector<double> &point)

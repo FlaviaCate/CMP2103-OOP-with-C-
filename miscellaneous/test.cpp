@@ -17,8 +17,16 @@ int main()
         {8.0000, 1.2621},
         {9.0000, 1.2610}};
 
+    vector<double> X;
+    vector<double> y;
+    for (const auto &point : prices)
+    {
+        X.push_back(point[0]);
+        y.push_back(point[1]);
+    }
+
     LinearRegression lr;
-    lr.fit(prices);
+    lr.fit(X, y);
 
     // double slope = lr.gradient(prices);
     // double intercept = lr.y_intercept(prices[0], slope);
