@@ -12,10 +12,10 @@ public:
     double rmse(const vector<vector<double>> &points)
     {
         double sum = 0.0;
-        int m = points.size(); // Assuming we're comparing two points
+        int m = points.size();
         for (size_t i = 0; i < m-1; ++i)
         {
-            double diff = points[i][1] - points[i + 1][1];
+            double diff = predict(points[i]) - points[i + 1][1];
             sum += pow(diff, 2);
         }
         return sqrt(sum / m);
@@ -27,7 +27,7 @@ public:
         int m = points.size(); // Assuming we're comparing all points
         for (size_t i = 0; i < m-1; ++i)
         {
-            double diff = abs(predict(points[i]) - points[i + 1][1]);
+            double diff = abs(predict(points[i]) - points[i][1]); // absoulte difference between predicted and actual value
             sum += diff;
         }
         return sum / m;
