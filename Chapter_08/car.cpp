@@ -65,7 +65,7 @@ int main()
 {
     Car myCar{"Ford", "Mustang"};
 
-    myCar.sound();
+    myCar.sound(); // parent
     print("{} {}\n", myCar.brand, myCar.model);
 
     return 0;

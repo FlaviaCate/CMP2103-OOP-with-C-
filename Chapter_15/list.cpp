@@ -1,18 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 struct Link
 {
-
-    Link(const string &v, Link *p = nullptr, Link *s = nullptr)
-        : value{v}, prev{p}, succ{s} {}
-    string value;
+    string name;
     Link *prev;
     Link *succ;
+
+    Link(string n, Link *p, Link *s)
+        : name{n}, prev{p}, succ{s} {}
 };
 
 int main()
 {
-    Link* norse_gods = new Link{"Thor", nullptr, nullptr};
-    norse_gods = new Link{"Odin", nullptr, norse_gods};
-    norse_gods->succ->prev = norse_gods;
-    norse_gods = new Link{"Freja", nullptr, norse_gods};
-    norse_gods->succ->prev = norse_gods;
+    Link *presidents =
+        new Link{"Milton Obote", nullptr, nullptr};
+
+    presidents =
+        new Link{"Idi Amin", nullptr, presidents};
+
+    // Link presidents
+    presidents->succ->prev = presidents;
+
+    presidents =
+        new Link{"Yoweri Museveni", nullptr, presidents};
+
+    presidents->succ->prev = presidents;
 }

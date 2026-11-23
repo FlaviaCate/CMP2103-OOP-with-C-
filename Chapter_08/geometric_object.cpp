@@ -1,5 +1,5 @@
 // Inheritance
-// Parent class
+// PArent class
 // Child classes
 
 import std;
@@ -109,7 +109,7 @@ public:
 
     double getWidth() const
     {
-        return width;
+        return width * width;
     }
 
     double getHeight() const

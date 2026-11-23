@@ -43,7 +43,7 @@ struct Shape
     void draw(Painter &painter) const; // deal with color and draw_specifics
 
 protected:
-    Shape(std::initializ er_list<Point> lst = {}); // add() the Points to this Shape
+    Shape(std::initializer_list<Point> lst = {}); // add() the Points to this Shape
     void add(Point p)
     {
         points.push_back(p);

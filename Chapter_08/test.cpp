@@ -1,72 +1,153 @@
-// import std;
-// using namespace std;
-
-// // Base class
-// class Vehicle
-// {
-// public:
-//     string brand = "Ford";
-    
-//     void sound()
-//     {
-//         cout << "Tuut, tuut! \n";
-//     }
-// };
-
-// // Derived class
-// class Car : public Vehicle
-// {
-// public:
-//     string model = "Mustang";
-// };
-
-// int main()
-// {
-//     Car myCar;
-//     myCar.sound();
-//     cout << myCar.brand + " " + myCar.model;
-//     return 0;
-// }
-
+// Inheritance
+// PArent class
+// Child classes
 
 import std;
 using namespace std;
 
-// Base class
-class Vehicle
+// Geometric Object
+class GeometricObject
 {
-public:
-    string brand;
+private:
+    string color;
+    bool filled;
 
-    Vehicle(string brand)
-        : brand(brand)
+public:
+    GeometricObject(
+        string color = "green",
+        bool filled = true)
+        : color(color), filled(filled)
     {
     }
 
-    void sound()
+    string getColor() const
     {
-        print("Tuut, tuut!\n");
+        return color;
+    }
+
+    void setColor(const string &color)
+    {
+        this->color = color;
+        // class(x, y):
+        // this.
+        // self.
+    }
+
+    bool isFilled() const
+    {
+        return filled;
+    }
+
+    void setFilled(bool filled)
+    {
+        this->filled = filled;
+    }
+
+    string toString() const
+    {
+        return "color: " + color +
+               " and filled: " +
+               (filled ? "true" : "false");
     }
 };
 
-// Derived class
-class Car : public Vehicle
+class Circle : public GeometricObject
 {
-public:
-    string model;
+private:
+    double radius;
 
-    Car(string brand, string model)
-        : Vehicle(brand), model(model)
+public:
+    Circle(double radius)
+        : GeometricObject(), radius(radius)
     {
+    }
+
+    double getRadius() const
+    {
+        return radius;
+    }
+
+    void setRadius(double radius)
+    {
+        this->radius = radius;
+    }
+
+    double getArea() const
+    {
+        return radius * radius * numbers::pi;
+    }
+
+    double getDiameter() const
+    {
+        return 2 * radius;
+    }
+
+    double getPerimeter() const
+    {
+        return 2 * radius * numbers::pi;
+    }
+
+    void printCircle() const
+    {
+        cout << toString()
+             << " radius: " << radius
+             << '\n';
+    }
+};
+
+class Rectangle : public GeometricObject
+{
+private:
+    double width;
+    double height;
+
+public:
+    Rectangle(double width, double height)
+        : GeometricObject(), width(width), height(height)
+    {
+    }
+
+    double getWidth() const
+    {
+        return width;
+    }
+
+    double getHeight() const
+    {
+        return height;
+    }
+
+    double getArea() const
+    {
+        return width * height;
+    }
+
+    double getPerimeter() const
+    {
+        return 2 * (width + height);
     }
 };
 
 int main()
 {
-    Car myCar{"Ford", "Mustang"};
+    Circle circle(5.0); // circle
 
-    myCar.sound();
-    print("{} {}\n", myCar.brand, myCar.model);
+    circle.printCircle(); // Access member function
+
+    cout << "Area: "
+         << circle.getArea() << '\n';
+
+    cout << "Diameter: "
+         << circle.getDiameter() << '\n';
+
+    cout << "Perimeter: "
+         << circle.getPerimeter() << '\n';
+
+    // Rectangle
+    Rectangle rectangle(4.0, 6.0); // rectangle
+    print("Rectangle area: {}\n", rectangle.getArea());
+    print("Rectangle perimeter: {}\n", rectangle.getPerimeter());
+    print("Rectangle width: {}\n", rectangle.isFilled());
 
     return 0;
 }
